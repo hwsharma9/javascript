@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var items = [
+			{ name: 'Bike', price: 250},
+			{ name: 'TV', price: 500},
+			{ name: 'Car', price: 1000},
+			{ name: 'Watch', price: 50},
+			{ name: 'Fridge', price: 150},
+			{ name: 'Bycycle', price: 100},
+			{ name: 'Pen', price: 10},
+			{ name: 'Text book', price: 30},
+			{ name: 'Bag', price: 45},
+			{ name: 'Lunch Box', price: 15},
+		];
+		console.log(items);
+		console.log('filter');
+		var filteredItems = items.filter(item => {
+			return item.price <= 100;
+		});
+		console.log(filteredItems);
+		console.log('map');
+		var mapItems = items.map(item => {
+			return item.name;
+		});
+		console.log(mapItems);
+		console.log('find');
+		var foundItems = items.find(item => {
+			return item.price == 10;
+		});
+		console.log(foundItems);
+		console.log('forEach Loop');
+		items.forEach((item,index) => {
+			console.log(index + " " + item.name);
+		});
+		console.log('some');
+		var someItems = items.some(item => {
+			return item.price > 1000;
+		});
+		console.log(someItems);
+		console.log('every');
+		var everyItems = items.every(item => {
+			return item.price <= 1000;
+		});
+		console.log(everyItems);
+		console.log('reduce');
+		var total = items.reduce((sum,item) => {
+			return (item.price + sum);
+		},0);
+		console.log(total);
+		console.log('include');
+		var include = [1,2,3,4,5];
+		var includes = include.includes(7);
+		console.log(includes);
+	</script>
+</body>
+</html>
