@@ -1,0 +1,26 @@
+extends ./master.jade
+block title
+	title= "Contact Us"
+block content
+	.container
+		.row.justify-content-md-center
+			.col-md-6
+				h1.h3.mb-3.font-weight-normal.text-center Contact Us
+				form(method="POST",action="/contact-us")
+					.form-group
+						label(for='exampleInputEmail1') Email
+						input.form-control(type="text", name="email", value="",placeholder="Email")
+					.form-group
+						label(for='exampleInputEmail1') Name
+						input.form-control(type="text", name="name", value="",placeholder="Name")
+					.form-group
+						label(for='exampleInputEmail1') Comment
+						textarea.form-control(name="Comment", value="",placeholder="Comment")
+					button.btn.btn-primary.btn-block(type='submit') Submit
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;

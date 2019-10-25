@@ -1,0 +1,21 @@
+if(results.length)
+	nav(aria-label='Page navigation example')
+		ul.pagination
+			- var i = 0
+			if(pagination.previous)
+				li.page-item
+					a.page-link(href="?page=0") First
+				li.page-item
+					a.page-link(href="?page=#{pagination.previous}") Previous
+			- var prev2 = pagination.current - 2
+			- var next2 = pagination.current + 2
+			- while(i < numPages)
+				if((i>= prev2) && (i<= next2))
+					li.page-item(class={active: i == pagination.current})
+						a.page-link(href="?page=#{i}") #{i+1}
+				- i++
+			if(pagination.next)
+				li.page-item
+					a.page-link(href="?page=#{pagination.next}") Next
+				li.page-item
+					a.page-link(href="?page=#{numPages-1}") Last

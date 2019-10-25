@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Car{
+			constructor(brand,model,licencePlate) {
+				this.brand = brand;
+				this.model = model;
+				this.licencePlate = licencePlate;
+			}
+		}
+		var car1  = new Car('Maruti','800','MP09 2103');
+		var car2 = {};
+		var car3 = {};
+		var car4 = {};
+		var car5 = {};
+		var returnedTarget2 = Object.assign(car2, car1);
+		returnedTarget2.licencePlate = 'MP09 2104';
+		var returnedTarget3 = Object.assign(car3, car1);
+		returnedTarget3.licencePlate = 'MP09 2105';
+		var returnedTarget4 = Object.assign(car4, car1);
+		returnedTarget4.licencePlate = 'MP09 2106';
+		var returnedTarget5 = Object.assign(car5, car1);
+		returnedTarget5.licencePlate = 'MP09 2107';
+		console.log(car1);
+		console.log(returnedTarget2);
+		console.log(returnedTarget3);
+		console.log(returnedTarget4);
+		console.log(returnedTarget5);
+		var carsForRent = [car1,returnedTarget2,returnedTarget3,returnedTarget4,returnedTarget5];
+		carsForRent.splice(0,1);
+		// carsForRent.splice((carsForRent.length-1),1);
+		carsForRent.pop();
+		console.log(carsForRent);
+		var carsForSale = [];
+		carsForRent.forEach(car => {
+			console.log(car.licencePlate + " number plate has brand " + car.brand);
+			var newCar = {};
+			var returnedTarget2 = Object.assign(newCar, car);
+			carsForSale.push(returnedTarget2);
+		});
+		carsForSale[0].licencePlate = 'MP09 4793';
+		console.log(carsForSale);
+		var totalCars = carsForRent.length + carsForSale.length;
+		console.log("Total Cars = " + totalCars);
+	</script>
+</body>
+</html>

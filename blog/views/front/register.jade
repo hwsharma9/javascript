@@ -1,0 +1,26 @@
+extends ./master.jade
+block title
+	title= "Register User"
+block content
+	.container
+		.row.justify-content-md-center
+			.col-md-6
+				h1.h3.mb-3.font-weight-normal.text-center Register User
+				form(method="POST",action="/register")
+					.form-group
+						label(for='exampleInputEmail1') Name
+						input.form-control(type="text", name="name", placeholder="Name")
+					.form-group
+						label(for='exampleInputEmail1') Mobile Number
+						input.form-control(type="text", name="mobile_number", placeholder="Mobile Number")
+					.form-group
+						label(for='exampleInputEmail1') Email
+						input.form-control(type="text", name="email", placeholder="Email")
+					.form-group
+						label(for='exampleInputEmail1') Password
+						input.form-control(type="password", name="password", placeholder="Password")
+					button.btn.btn-primary.btn-block(type='submit') Submit
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;

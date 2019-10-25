@@ -1,0 +1,80 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+		meta(name='generator', content='Jekyll v3.8.5')
+		block title
+		// Bootstrap core CSS
+		link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+		style.
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		// Custom styles for this template
+		link(href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900', rel='stylesheet')
+		// Custom styles for this template
+		link(href='/stylesheets/blog.css', rel='stylesheet')
+	body
+		.container
+			header.blog-header.py-3
+				.row.flex-nowrap.justify-content-between.align-items-center
+					.col-4.pt-1
+						a.p-2.text-muted(href='/contact-us') Contact Us
+						a.p-2.text-muted(href='/about-us') About Us
+						if(loggedin)
+							a.p-2.text-muted(href='/user/add-blog') Add Blog
+							a.p-2.text-muted(href='/user/blog-list') My Blogs
+					.col-4.text-center
+						a.blog-header-logo.text-dark(href='/') Console Log
+					.col-4.d-flex.justify-content-end.align-items-center
+						a.text-muted(href='#')
+							svg.mx-3(xmlns='http://www.w3.org/2000/svg', width='20', height='20', fill='none', stroke='currentColor', stroke-linecap='round', stroke-linejoin='round', stroke-width='2', role='img', viewBox='0 0 24 24', focusable='false')
+								title Search
+								circle(cx='10.5', cy='10.5', r='7.5')
+								path(d='M21 21l-5.2-5.2')
+						if(loggedin)
+							a.btn.btn-sm.btn-outline-secondary.mr-2(href='/user') Dashboard
+							a.btn.btn-sm.btn-outline-secondary(href='/logout') Logout
+						else
+							a.btn.btn-sm.btn-outline-secondary.mr-2(href='/login') Sign in
+							a.btn.btn-sm.btn-outline-secondary(href='/register') Sign up
+			.nav-scroller.py-1.mb-2
+				nav.nav.d-flex.justify-content-between
+					include ../front/categories.jade
+		main.container(role='main')
+			- var messages = getMessages()
+
+			if messages.success
+				each msg in messages.success
+					.alert.alert-success
+						strong Well done!
+							| #{msg}
+			if messages.error
+				each msg in messages.error
+					.alert.alert-warning
+						strong Warning!
+							| #{msg}
+
+			block content
+		footer.blog-footer
+			p
+				| Blog template built for 
+				a(href='https://getbootstrap.com/') Bootstrap
+				|  by 
+				a(href='https://twitter.com/mdo') @mdo
+				| .
+			p
+				a(href='#') Back to top

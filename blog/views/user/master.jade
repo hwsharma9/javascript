@@ -1,0 +1,14 @@
+html(lang="en")
+	head
+		block title
+	body
+		ul
+			li
+				a(href="/")= "Home"
+			li
+				a(href="/user/add-blog")= "Add Blog"
+			li
+				a(href="/user/blog-list")= "My Blogs"
+			li
+				a(href="/logout")= "Logout"
+		block content

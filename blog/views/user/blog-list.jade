@@ -1,0 +1,44 @@
+extends ../front/master.jade
+block title
+	title= "Add Blog"
+block content
+	script(src="/javascripts/jquery.min.js")
+	.container
+		.row.justify-content-md-center
+			.col-md-6
+				h1.h3.mb-3.font-weight-normal.text-center My Blog
+				table.table.table-inverse
+					tr
+						th Id
+						th Title
+						th Category
+						th Action
+					if results.length
+						each item in results
+							tr(id="blog_" + item.id)
+								td= item.id
+								td
+									a(href="/view-blog/" + item.id) #{item.title}
+								td= item.category_name
+								td
+									a(class="btn btn-primary mr-2", href="/user/edit-blog/" + item.id)= "Edit"
+									a(class="btn btn-danger deleteBlog", href="javascript:void(0)", data-id="#{item.id}")= "Delete"
+					else
+						tr
+							td(colspan=3)= "Blogs Not Found"
+				.row.mb-2
+					include ../front/pagination.jade
+	script(type="text/javascript").
+		$(".deleteBlog").on("click", function() {
+			if(confirm("Really want to delete the blog?"))
+				var id = $(this).data("id");
+				$.ajax({
+					url: "/user/delete-blog",
+					method: "GET",
+					data:{id:id},
+					success: function(result) {
+						if(result.affectedRows > 0)
+							$("#blog_" + id).remove();
+					}
+				});
+		})

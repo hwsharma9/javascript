@@ -1,0 +1,33 @@
+extends ../front/master.jade
+block title
+	title= "Add Blog"
+block content
+	.container
+		.row.justify-content-md-center
+			.col-md-6
+				h1.h3.mb-3.font-weight-normal.text-center Add Blog
+				form(method="POST",action="/user/add-blog")
+					.form-group
+						label(for='exampleInputEmail1') Blog Title
+						input.form-control(type="text", name="title", value="",placeholder="Blog Title")
+					.form-group
+						label(for='exampleInputEmail1') Blog Description
+						textarea.form-control(name="description", value="",placeholder="Blog Description")
+					.form-group
+						label(for='exampleInputEmail1') Category
+						select.form-control(name="category")
+							option(value="") Select Category
+							if(categories)
+								each category in categories
+									option(value="#{category.id}") #{category.category_name}
+					button.btn.btn-primary.btn-block(type='submit') Submit
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
+		.clearfix &nbsp;
